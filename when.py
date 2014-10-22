@@ -3,7 +3,7 @@ import os
 from tornado.options import options
 from tornado.httpserver import HTTPServer
 from tornado.ioloop import IOLoop
-from tornado.web import Application, RequestHandler
+from tornado.web import Application, RequestHandler, StaticFileHandler
 
 class MainHandler(RequestHandler):
     def get(self, message = None):
@@ -12,10 +12,17 @@ class MainHandler(RequestHandler):
     def output_message(self, message):
         self.render('index.html', message = message)
 
-application = Application([
+settings = {
+    'debug': True,
+}
+
+handlers = [
     (r'/', MainHandler),
+    (r'/assets/(.*)', StaticFileHandler, {'path': 'assets/'}),
     (r'/([a-z0-9]+)', MainHandler),
-])
+]
+
+application = Application(handlers, **settings)
 
 if __name__ == '__main__':
     options.parse_command_line()
