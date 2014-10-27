@@ -3,13 +3,19 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Thibaud Colas, @ThibWeb
 
 # THANKS
 
-    <name>
+    Nick Gerakines (https://github.com/ngerakines/commitment)
+    Xavier Beillas
 
 # TECHNOLOGY COLOPHON
 
-    HTML5, CSS3
-    Normalize.css, jQuery, Modernizr
+    Standards: HTML5, CSS3
+    Software: Sublime Text, git, Python, normalize.css
+
+# Source
+
+    Source: https://github.com/ThibWeb/whenwillitbedone
+    License: MIT
