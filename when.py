@@ -18,7 +18,7 @@ settings = {
 
 handlers = [
     (r'/', MainHandler),
-    (r'/assets/(.*)', StaticFileHandler, {'path': 'assets/'}),
+    (r'/assets/(.*)', StaticFileHandler, {'path': os.path.join(os.path.dirname(__file__), 'assets')}),
     (r'/([a-z0-9]+)', MainHandler),
 ]
 
