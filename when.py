@@ -1,4 +1,5 @@
 import os
+import random
 
 from tornado.options import options
 from tornado.httpserver import HTTPServer
@@ -19,7 +20,8 @@ for line in open(messages_file).readlines():
 
 class MainHandler(RequestHandler):
     def get(self, message = None):
-        self.output_message(message)
+        message_hash = random.choice(messages.keys())
+        self.output_message(messages[message_hash])
 
     def output_message(self, message):
         self.render('index.html', message = message)
