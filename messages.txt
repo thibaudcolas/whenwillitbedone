@@ -5,3 +5,5 @@ It's a difficult problem, the solution is not obvious, and I am not sure how lon
 It always takes longer than you expect, even when you take into account Hofstadter’s law.
 Tomorrow.
 Next week.
+Well, I'm done!
+In a moment or two.
