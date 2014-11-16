@@ -12,6 +12,8 @@ body {
   letter-spacing: 0;
   word-spacing: 0;
   line-height: 1.2;
+  background-color: #eee;
+  color: #333;
 }
 
 h1 {
