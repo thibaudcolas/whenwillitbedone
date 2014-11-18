@@ -32,6 +32,12 @@ h1 {
   margin: 1em auto;
 }
 
+.home-link {
+  display: block;
+  text-decoration: none;
+}
+
+
 .permalink {
   font-size: 50%;
   color: #ddd;
