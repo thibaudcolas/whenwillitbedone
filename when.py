@@ -4,7 +4,7 @@ import random
 from tornado.options import options
 from tornado.httpserver import HTTPServer
 from tornado.ioloop import IOLoop
-from tornado.web import Application, RequestHandler, StaticFileHandler
+from tornado.web import Application, RequestHandler, StaticFileHandler, HTTPError
 
 try:
     from hashlib import md5
@@ -19,12 +19,16 @@ for line in open(messages_file).readlines():
     messages[md5(line).hexdigest()] = line
 
 class MainHandler(RequestHandler):
-    def get(self, message = None):
-        message_hash = random.choice(messages.keys())
-        self.output_message(messages[message_hash])
+    def get(self, message_hash = None):
+        if not message_hash:
+            message_hash = random.choice(messages.keys())
+        elif message_hash not in messages:
+            raise HTTPError(404)
 
-    def output_message(self, message):
-        self.render('index.html', message = message)
+        self.output_message(messages[message_hash], message_hash)
+
+    def output_message(self, message, message_hash):
+        self.render('index.html', message = message, hash = message_hash)
 
 settings = {
     'debug': True,

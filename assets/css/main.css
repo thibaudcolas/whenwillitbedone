@@ -39,15 +39,13 @@ h1 {
 
 
 .permalink {
+  display: block;
+  float: right;
   font-size: 50%;
-  color: #ddd;
-}
-
-.permalink a {
+  color: #aaa;
   text-decoration: none;
-  color: inherit;
 }
 
-.permalink a:hover {
+.permalink:hover {
   text-decoration: underline;
 }
