@@ -1,1 +1,1 @@
-web: python when.py
+web: python when.py --debug=0

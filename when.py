@@ -1,7 +1,7 @@
 import os
 import random
 
-from tornado.options import options
+from tornado.options import define, options
 from tornado.httpserver import HTTPServer
 from tornado.ioloop import IOLoop
 from tornado.web import Application, RequestHandler, StaticFileHandler, HTTPError
@@ -10,6 +10,8 @@ try:
     from hashlib import md5
 except ImportError:
     from md5 import md5
+
+define('debug', default=1, help='Debug flag: 1 or 0, 1 by default')
 
 messages_file = os.path.join(os.path.dirname(__file__), 'messages.txt')
 messages = {}
@@ -30,20 +32,20 @@ class MainHandler(RequestHandler):
     def output_message(self, message, message_hash):
         self.render('index.html', message = message, hash = message_hash)
 
-settings = {
-    'debug': True,
-}
-
 handlers = [
     (r'/', MainHandler),
     (r'/assets/(.*)', StaticFileHandler, {'path': os.path.join(os.path.dirname(__file__), 'assets')}),
     (r'/([a-z0-9]+)', MainHandler),
 ]
 
-application = Application(handlers, **settings)
-
 if __name__ == '__main__':
     options.parse_command_line()
+
+    settings = {
+        'debug': options.debug,
+    }
+    application = Application(handlers, **settings)
+
     http_server = HTTPServer(application)
     http_server.listen(os.environ.get("PORT", 5000))
     IOLoop.instance().start()
