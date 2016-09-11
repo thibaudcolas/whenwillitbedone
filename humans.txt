@@ -3,7 +3,7 @@
 
 # TEAM
 
-    Thibaud Colas, @ThibWeb
+    Thibaud Colas, @thibaud_colas
 
 # THANKS
 
@@ -17,5 +17,5 @@
 
 # Source
 
-    Source: https://github.com/ThibWeb/whenwillitbedone
+    Source: https://github.com/thibaudcolas/whenwillitbedone
     License: MIT
