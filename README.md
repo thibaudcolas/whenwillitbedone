@@ -1,11 +1,8 @@
-[When will it be done?](http://whenwillitbedone.trgdy.com/)
-============
+# When will it be done?
 
-> When will it be done?
+> A small Tornado website, heavily inspired by http://whatthecommit.com/.
 
-A small Tornado website, heavily inspired by http://whatthecommit.com/.
-
-Hosted on Heroku: http://whenwillitbedone.trgdy.com/
+Previously hosted on Heroku.
 
 ## License
 
