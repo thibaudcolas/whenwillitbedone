@@ -2,6 +2,8 @@
 
 > A small Tornado website, heavily inspired by http://whatthecommit.com/.
 
+![](./screenshot.gif)
+
 Previously hosted on Heroku.
 
 ## License
